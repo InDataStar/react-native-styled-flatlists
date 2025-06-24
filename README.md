@@ -16,9 +16,9 @@ A simple, animated React Native `FlatList` wrapper that applies a **"pulse-in" s
 ## 📦 Installation
 
 ```bash
-npm install pulse-in-list
+npm install react-native-styled-flatLists
 # or
-yarn add pulse-in-list
+yarn add react-native-styled-flatLists
 ```
 
 ## 🚀 Usage
@@ -26,7 +26,7 @@ yarn add pulse-in-list
 ```
 import React from 'react';
 import { Text, View } from 'react-native';
-import PulseInList from 'pulse-in-list';
+import PulseInList from 'react-native-styled-flatLists';
 
 const data = [
   { key: '1', name: 'Apple' },
