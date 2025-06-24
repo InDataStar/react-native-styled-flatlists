@@ -22,12 +22,16 @@ type PulseInListProps<T> = {
   data: T[];
   renderItem: (info: ListRenderItemInfo<T>) => React.ReactElement;
   animationDelay?: number;
+  isHorizontal:boolean;
+  animationType:string;
 };
 
 function PulseInList<T>({
   data,
   renderItem,
   animationDelay = 100,
+  isHorizontal,
+  animationType
 }: PulseInListProps<T>) {
   const ScaleAnims = data.map(() =>
     useRef(new Animated.Value(0.8)).current
@@ -35,13 +39,21 @@ function PulseInList<T>({
 
   useEffect(() => {
     ScaleAnims.forEach((anim, index) => {
+      if(animationType === 'spring'){
       Animated.spring(anim, {
         toValue: 1,
         useNativeDriver: true,
         friction: 5,
         tension: 100,
         delay: index * animationDelay,
+      }).start();}
+      else{
+      Animated.timing(anim, {
+        toValue: 1,
+        useNativeDriver: true, 
+        delay: index * animationDelay,
       }).start();
+      }
     });
   }, []);
 
@@ -66,6 +78,7 @@ function PulseInList<T>({
   return (
     <FlatList
       data={data}
+      horizontal={isHorizontal}
       keyExtractor={(item, index) =>
         (item as any).key || index.toString()
       }

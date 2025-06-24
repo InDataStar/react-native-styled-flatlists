@@ -16,9 +16,9 @@ A simple, animated React Native `FlatList` wrapper that applies a **"pulse-in" s
 ## 📦 Installation
 
 ```bash
-npm install react-native-styled-flatLists
+npm install react-native-styled-FlatLists
 # or
-yarn add react-native-styled-flatLists
+yarn add react-native-styled-FlatLists
 ```
 
 ## 🚀 Usage
@@ -26,7 +26,7 @@ yarn add react-native-styled-flatLists
 ```
 import React from 'react';
 import { Text, View } from 'react-native';
-import PulseInList from 'react-native-styled-flatLists';
+import PulseInList from 'react-native-styled-flatlists';
 
 const data = [
   { key: '1', name: 'Apple' },
@@ -39,24 +39,28 @@ export default function App() {
     <PulseInList
       data={data}
       animationDelay={120}
+      isHorizontal={true}
+      animationType='timing'
       renderItem={({ item }) => (
         <View style={{ padding: 20, backgroundColor: '#eee', marginVertical: 10 }}>
           <Text>{item.name}</Text>
         </View>
       )}
     />
-  );
-}
+    )
+  }
 
 ```
 
 ## ⚙️ Props
 
-| Prop            | Type       | Default | Description                                       |
-|-----------------|------------|---------|---------------------------------------------------|
-| `data`          | `any[]`    | _None_  | Array of items to render                          |
-| `renderItem`    | `function` | _None_  | Function to render each item (same as FlatList)   |
-| `animationDelay`| `number`   | `100`   | Delay in ms between animations per item           |
+| Prop            | Type       | Default | Description                                                   |
+|-----------------|------------|---------|---------------------------------------------------------------|
+| `data`          | `any[]`    | _None_  | Array of items to render                                      |
+| `renderItem`    | `function` | _None_  | Function to render each item (same as FlatList)               |
+| `animationDelay`| `number`   | `100`   | Delay in ms between animations per item                       |
+| `isHorizontal`  | `Bool`     | _None_  | Sets the list to either horizontal or vertical                |
+| `animationType` | `Bool`     | _None_  | Sets the animation of contents to either spring or time in    | 
 
 
 ## 🛠 Under the Hood
